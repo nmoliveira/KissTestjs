@@ -6,8 +6,10 @@
 </head>
 <body>
   <script type="text/javascript">
-    kt.assert(1 == '1', '1 == "1"');
-    kt.assert(1 === '1', '1 === "1"');
+    kt.assert(true, 'Test passed');
+    kt.assert(false, 'Test failed');
+    kt.isEqual(1, '1', '1 is equal to "1"');
+    kt.isEqual(1, '2', '1 is equal to "2"');
   </script>
 </body>
 </html>

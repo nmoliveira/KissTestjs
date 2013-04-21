@@ -3,6 +3,7 @@
 
 // kt provides the namespace
 var kt = function() {
+
   // Creates/Get ul element for results list
   var getResultsList = function() {
     var results = document.getElementById('testResults');
@@ -13,9 +14,10 @@ var kt = function() {
     }
     return results;
   };
+
   // Tests if value is true
-  // @value - the test
-  // @desc - description of the test
+  // @value the test
+  // @desc description of the test
   var assert = function(value, desc) {
     // get list element
     var results = getResultsList();
@@ -27,7 +29,33 @@ var kt = function() {
     // add item to list
     results.appendChild(li);
   };
+
+  // Tests if @actual and @expected are equal
+  // @actual current value
+  // @expected expected value
+  // @desc description of the test
+  var isEqual = function(actual, expected, desc){
+    // get list element
+    var results = getResultsList();
+    // create new item for the list
+    var li = document.createElement('li');
+    // is actual equals to expected
+    if(actual == expected) {
+      var desc = document.createTextNode(desc);
+      li.className = 'kt-passed';  
+    }
+    else{
+      var desc = document.createTextNode(desc + ' -> Expected: "' + expected + '" Result : "' + actual + '"');
+      li.className = 'kt-failed';
+    }
+    li.appendChild(desc);
+    // add item to list
+    results.appendChild(li);
+  };
+
+  // public region
   return {
-    assert: assert
+    assert: assert,
+    isEqual: isEqual
   }
 }();
