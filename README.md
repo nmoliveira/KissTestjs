@@ -6,8 +6,10 @@ This is a very basic javascript testing tool.
 ######Example of usage:
 
 ```javascript
-kt.assert(1 == '1', 'Test will pass.');
-kt.assert(1 === '1', 'Test will fail.');
+kt.assert(true, 'Test passed');
+kt.assert(false, 'Test failed');
+kt.isEqual(1, '1', '1 equal to "1"');
+kt.isStrictEqual(1, '1', '1 strict equal to "1"');
 ```
 
 ######Output:
